@@ -16,10 +16,22 @@ public class Main {
 
         // Uncomment this test which has many operators
         rpnExpression = "5,1,2,+,4,*,+,3,-";
-        expectedResult = 14.0;
+        expectedResult = -14.0;
+        actualResult = rpc.calculate(rpnExpression);
+        checkResult(rpnExpression, expectedResult, actualResult);
+
+        rpnExpression = "5,25,/";
+        expectedResult = 5.0;
+        actualResult = rpc.calculate(rpnExpression);
+        checkResult(rpnExpression, expectedResult, actualResult);
+
+        rpnExpression = "5,5,*,1,+";
+        expectedResult = 26.0;
         actualResult = rpc.calculate(rpnExpression);
         checkResult(rpnExpression, expectedResult, actualResult);
     }
+
+
 
     private static void checkResult(String expression, double expected, double actual) {
         if (expected == actual) {
